@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tXr-a1-R10">
+            <objects>
+                <viewController id="BV1-FR-VrT" customClass="ViewController" customModule="BookmARker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gSw-Mo-9PY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YCU-dO-eG1">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </arscnView>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t06-P3-bms">
+                                <rect key="frame" x="238" y="138" width="25" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="oZ7-cx-Pbm">
+                                <rect key="frame" x="0.0" y="10" width="375" height="130"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DRi-yn-pTC">
+                                <rect key="frame" x="157" y="587" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="9eG-Qa-jcr"/>
+                                    <constraint firstAttribute="width" constant="60" id="hK4-Cc-Qzs"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="iconmonstr-photo-camera-7-240"/>
+                                <connections>
+                                    <action selector="enableCamera:" destination="BV1-FR-VrT" eventType="touchUpInside" id="OmP-jn-QMy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FQ5-GR-ju8" firstAttribute="trailing" secondItem="oZ7-cx-Pbm" secondAttribute="trailing" id="3fC-yz-fBW"/>
+                            <constraint firstItem="FQ5-GR-ju8" firstAttribute="trailing" secondItem="t06-P3-bms" secondAttribute="trailing" constant="112" id="CJR-1W-QjK"/>
+                            <constraint firstItem="FQ5-GR-ju8" firstAttribute="top" secondItem="oZ7-cx-Pbm" secondAttribute="top" constant="20" id="XhS-DN-YSh"/>
+                            <constraint firstItem="YCU-dO-eG1" firstAttribute="centerY" secondItem="FQ5-GR-ju8" secondAttribute="centerY" id="akE-hq-ekh"/>
+                            <constraint firstItem="oZ7-cx-Pbm" firstAttribute="leading" secondItem="FQ5-GR-ju8" secondAttribute="leading" id="hCw-dy-zgn"/>
+                            <constraint firstItem="FQ5-GR-ju8" firstAttribute="bottom" secondItem="DRi-yn-pTC" secondAttribute="bottom" constant="20" id="kob-9y-UsO"/>
+                            <constraint firstItem="DRi-yn-pTC" firstAttribute="centerX" secondItem="YCU-dO-eG1" secondAttribute="centerX" id="lZz-fH-GTr"/>
+                            <constraint firstItem="t06-P3-bms" firstAttribute="top" secondItem="oZ7-cx-Pbm" secondAttribute="bottom" constant="8" id="laf-oL-Tx3"/>
+                            <constraint firstItem="YCU-dO-eG1" firstAttribute="width" secondItem="gSw-Mo-9PY" secondAttribute="width" id="m2J-Kb-bGz"/>
+                            <constraint firstItem="FQ5-GR-ju8" firstAttribute="bottom" secondItem="oZ7-cx-Pbm" secondAttribute="bottom" constant="537" id="rxx-ea-uPy"/>
+                            <constraint firstItem="YCU-dO-eG1" firstAttribute="centerX" secondItem="FQ5-GR-ju8" secondAttribute="centerX" id="syn-NY-Jag"/>
+                            <constraint firstItem="YCU-dO-eG1" firstAttribute="height" secondItem="gSw-Mo-9PY" secondAttribute="height" id="y2o-9W-Jkt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FQ5-GR-ju8"/>
+                    </view>
+                    <connections>
+                        <outlet property="debugTextView" destination="oZ7-cx-Pbm" id="rH8-y7-buq"/>
+                        <outlet property="rearCameraView" destination="YCU-dO-eG1" id="EyV-Kf-H1U"/>
+                        <outlet property="symbolTextField" destination="t06-P3-bms" id="V2f-OX-WLP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="24.800000000000001" y="31.934032983508249"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="iconmonstr-photo-camera-7-240" width="240" height="240"/>
+    </resources>
+</document>
