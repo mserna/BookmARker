@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="N4S-g6-RzT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,31 +9,31 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--BookmARker-->
         <scene sceneID="tXr-a1-R10">
             <objects>
                 <viewController id="BV1-FR-VrT" customClass="ViewController" customModule="BookmARker" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="gSw-Mo-9PY">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="gSw-Mo-9PY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YCU-dO-eG1">
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YCU-dO-eG1">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </arscnView>
-                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t06-P3-bms">
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t06-P3-bms">
                                 <rect key="frame" x="238" y="138" width="25" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="oZ7-cx-Pbm">
-                                <rect key="frame" x="0.0" y="10" width="375" height="130"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="oZ7-cx-Pbm">
+                                <rect key="frame" x="0.0" y="64" width="375" height="76"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DRi-yn-pTC">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DRi-yn-pTC">
                                 <rect key="frame" x="157" y="587" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="9eG-Qa-jcr"/>
@@ -44,33 +44,85 @@
                                     <action selector="enableCamera:" destination="BV1-FR-VrT" eventType="touchUpInside" id="OmP-jn-QMy"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Tx8-Wz-fQg">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="FQ5-GR-ju8" firstAttribute="trailing" secondItem="oZ7-cx-Pbm" secondAttribute="trailing" id="3fC-yz-fBW"/>
                             <constraint firstItem="FQ5-GR-ju8" firstAttribute="trailing" secondItem="t06-P3-bms" secondAttribute="trailing" constant="112" id="CJR-1W-QjK"/>
+                            <constraint firstItem="YCU-dO-eG1" firstAttribute="top" secondItem="oZ7-cx-Pbm" secondAttribute="bottom" constant="-140" id="RQD-GI-Myh"/>
                             <constraint firstItem="FQ5-GR-ju8" firstAttribute="top" secondItem="oZ7-cx-Pbm" secondAttribute="top" constant="20" id="XhS-DN-YSh"/>
+                            <constraint firstItem="Tx8-Wz-fQg" firstAttribute="centerY" secondItem="YCU-dO-eG1" secondAttribute="centerY" id="Xi8-3b-3Sv"/>
                             <constraint firstItem="YCU-dO-eG1" firstAttribute="centerY" secondItem="FQ5-GR-ju8" secondAttribute="centerY" id="akE-hq-ekh"/>
                             <constraint firstItem="oZ7-cx-Pbm" firstAttribute="leading" secondItem="FQ5-GR-ju8" secondAttribute="leading" id="hCw-dy-zgn"/>
                             <constraint firstItem="FQ5-GR-ju8" firstAttribute="bottom" secondItem="DRi-yn-pTC" secondAttribute="bottom" constant="20" id="kob-9y-UsO"/>
                             <constraint firstItem="DRi-yn-pTC" firstAttribute="centerX" secondItem="YCU-dO-eG1" secondAttribute="centerX" id="lZz-fH-GTr"/>
                             <constraint firstItem="t06-P3-bms" firstAttribute="top" secondItem="oZ7-cx-Pbm" secondAttribute="bottom" constant="8" id="laf-oL-Tx3"/>
                             <constraint firstItem="YCU-dO-eG1" firstAttribute="width" secondItem="gSw-Mo-9PY" secondAttribute="width" id="m2J-Kb-bGz"/>
+                            <constraint firstItem="Tx8-Wz-fQg" firstAttribute="centerX" secondItem="YCU-dO-eG1" secondAttribute="centerX" id="pJf-Bz-0AK"/>
                             <constraint firstItem="FQ5-GR-ju8" firstAttribute="bottom" secondItem="oZ7-cx-Pbm" secondAttribute="bottom" constant="537" id="rxx-ea-uPy"/>
                             <constraint firstItem="YCU-dO-eG1" firstAttribute="centerX" secondItem="FQ5-GR-ju8" secondAttribute="centerX" id="syn-NY-Jag"/>
+                            <constraint firstItem="t06-P3-bms" firstAttribute="top" secondItem="oZ7-cx-Pbm" secondAttribute="bottom" constant="-2" id="v1N-rX-NtZ"/>
                             <constraint firstItem="YCU-dO-eG1" firstAttribute="height" secondItem="gSw-Mo-9PY" secondAttribute="height" id="y2o-9W-Jkt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FQ5-GR-ju8"/>
                     </view>
+                    <navigationItem key="navigationItem" title="BookmARker" id="eqC-6L-xyW">
+                        <barButtonItem key="rightBarButtonItem" title="Books" id="5gq-p0-Wv0">
+                            <connections>
+                                <action selector="bookSegue:" destination="BV1-FR-VrT" id="iRI-Dn-fNH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="Tx8-Wz-fQg" id="umG-gm-LZY"/>
                         <outlet property="debugTextView" destination="oZ7-cx-Pbm" id="rH8-y7-buq"/>
                         <outlet property="rearCameraView" destination="YCU-dO-eG1" id="EyV-Kf-H1U"/>
                         <outlet property="symbolTextField" destination="t06-P3-bms" id="V2f-OX-WLP"/>
+                        <segue destination="JAB-ft-UZe" kind="presentation" identifier="goToBooks" id="5yR-yd-8Ma"/>
+                        <segue destination="Lfe-ch-0VD" kind="presentation" identifier="bookmarking" id="ADm-Oi-jvl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="24.800000000000001" y="31.934032983508249"/>
+            <point key="canvasLocation" x="364" y="31.934032983508249"/>
+        </scene>
+        <!--Catalog-->
+        <scene sceneID="kjh-6z-ClV">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Catalog" id="JAB-ft-UZe" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pZ3-7B-I5c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1078" y="47"/>
+        </scene>
+        <!--PageReview-->
+        <scene sceneID="oy0-tl-cHT">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PageReview" id="Lfe-ch-0VD" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T8y-9V-IJw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1038" y="157"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9Ga-Au-y2M">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="N4S-g6-RzT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xWC-D7-ZbZ">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BV1-FR-VrT" kind="relationship" relationship="rootViewController" id="wC8-Il-Ws7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CNo-ZU-uKK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-332" y="32"/>
         </scene>
     </scenes>
     <resources>
