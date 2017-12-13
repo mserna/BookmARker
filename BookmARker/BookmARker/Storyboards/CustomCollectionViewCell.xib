@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CustomCollectionViewCell" customModule="BookmARker" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="325" height="322"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="325" height="322"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WQx-Lc-lJ6">
+                        <rect key="frame" x="0.0" y="0.0" width="325" height="266"/>
+                    </imageView>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Currently Reading: " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fsT-Eu-ZaC">
+                        <rect key="frame" x="167" y="263" width="158" height="59"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Bookmarks:" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nZI-fW-zCa">
+                        <rect key="frame" x="0.0" y="263" width="166" height="59"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="WQx-Lc-lJ6" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" id="5by-q8-HSO"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="WQx-Lc-lJ6" secondAttribute="bottom" constant="56" id="mLf-Rv-dCN"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="325" height="322"/>
+            <connections>
+                <outlet property="bookImage" destination="WQx-Lc-lJ6" id="4G3-bP-rSK"/>
+                <outlet property="bookmarkCounter" destination="nZI-fW-zCa" id="a98-qB-l9W"/>
+                <outlet property="currentlyReading" destination="fsT-Eu-ZaC" id="vZv-d1-WrY"/>
+            </connections>
+            <point key="canvasLocation" x="-75.5" y="26"/>
+        </collectionViewCell>
+    </objects>
+</document>

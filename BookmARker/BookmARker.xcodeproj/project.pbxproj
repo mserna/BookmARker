@@ -18,6 +18,15 @@
 		B6994EBA1F835F0F00E39494 /* BookmARkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6994EB91F835F0F00E39494 /* BookmARkerTests.swift */; };
 		B6994EC51F835F0F00E39494 /* BookmARkerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6994EC41F835F0F00E39494 /* BookmARkerUITests.swift */; };
 		B6A077E41FDF702D00FF1934 /* LaunchscreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A077E31FDF702D00FF1934 /* LaunchscreenController.swift */; };
+		B6CF06611FE0A18200655013 /* BookmarkTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6CF065F1FE0A18200655013 /* BookmarkTable.storyboard */; };
+		B6CF06621FE0A18200655013 /* Catalog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6CF06601FE0A18200655013 /* Catalog.storyboard */; };
+		B6CF06661FE0A1B700655013 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CF06631FE0A1B700655013 /* BookmarkViewController.swift */; };
+		B6CF06671FE0A1B700655013 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CF06641FE0A1B700655013 /* CatalogViewController.swift */; };
+		B6CF066A1FE0A37900655013 /* PageReview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6CF06691FE0A37900655013 /* PageReview.storyboard */; };
+		B6CF066C1FE0A38E00655013 /* PageReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CF066B1FE0A38E00655013 /* PageReviewViewController.swift */; };
+		B6CF066F1FE0CE5A00655013 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CF066D1FE0CE5A00655013 /* CustomCollectionViewCell.swift */; };
+		B6CF06701FE0CE5A00655013 /* CustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6CF066E1FE0CE5A00655013 /* CustomCollectionViewCell.xib */; };
+		B6CF06721FE0DB4600655013 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CF06711FE0DB4600655013 /* Book.swift */; };
 		B6D064F01FBAA07500A6A48C /* book_nobook_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B6D064EF1FBAA07500A6A48C /* book_nobook_model.mlmodel */; };
 		DF23461F02A022BFC59932F6 /* Pods_BookmARker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D85A9258385F72D855648056 /* Pods_BookmARker.framework */; };
 		FBA5409D5DE42C0FB3E7CDEF /* Pods_BookmARkerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E520B20CEDD6B693E31D1E06 /* Pods_BookmARkerTests.framework */; };
@@ -63,6 +72,15 @@
 		B6994EC41F835F0F00E39494 /* BookmARkerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmARkerUITests.swift; sourceTree = "<group>"; };
 		B6994EC61F835F0F00E39494 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6A077E31FDF702D00FF1934 /* LaunchscreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchscreenController.swift; sourceTree = "<group>"; };
+		B6CF065F1FE0A18200655013 /* BookmarkTable.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BookmarkTable.storyboard; sourceTree = "<group>"; };
+		B6CF06601FE0A18200655013 /* Catalog.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Catalog.storyboard; sourceTree = "<group>"; };
+		B6CF06631FE0A1B700655013 /* BookmarkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
+		B6CF06641FE0A1B700655013 /* CatalogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
+		B6CF06691FE0A37900655013 /* PageReview.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PageReview.storyboard; sourceTree = "<group>"; };
+		B6CF066B1FE0A38E00655013 /* PageReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageReviewViewController.swift; sourceTree = "<group>"; };
+		B6CF066D1FE0CE5A00655013 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		B6CF066E1FE0CE5A00655013 /* CustomCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCollectionViewCell.xib; sourceTree = "<group>"; };
+		B6CF06711FE0DB4600655013 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		B6D064EF1FBAA07500A6A48C /* book_nobook_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = book_nobook_model.mlmodel; sourceTree = "<group>"; };
 		D85A9258385F72D855648056 /* Pods_BookmARker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookmARker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC08A1B4C5A23CA0C766B081 /* Pods-BookmARkerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookmARkerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BookmARkerTests/Pods-BookmARkerTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -110,8 +128,12 @@
 		B620A2091FBA452600E1EA09 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				B6CF066E1FE0CE5A00655013 /* CustomCollectionViewCell.xib */,
+				B6CF065F1FE0A18200655013 /* BookmarkTable.storyboard */,
+				B6CF06601FE0A18200655013 /* Catalog.storyboard */,
 				B6994EA81F835F0F00E39494 /* Main.storyboard */,
 				B6994EAD1F835F0F00E39494 /* LaunchScreen.storyboard */,
+				B6CF06691FE0A37900655013 /* PageReview.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -182,8 +204,13 @@
 		B6DF5D531F85BFBC009D729D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				B6CF06631FE0A1B700655013 /* BookmarkViewController.swift */,
 				B6994EA61F835F0F00E39494 /* ViewController.swift */,
 				B6A077E31FDF702D00FF1934 /* LaunchscreenController.swift */,
+				B6CF066B1FE0A38E00655013 /* PageReviewViewController.swift */,
+				B6CF06641FE0A1B700655013 /* CatalogViewController.swift */,
+				B6CF066D1FE0CE5A00655013 /* CustomCollectionViewCell.swift */,
+				B6CF06711FE0DB4600655013 /* Book.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -317,10 +344,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6CF06621FE0A18200655013 /* Catalog.storyboard in Resources */,
+				B6CF06611FE0A18200655013 /* BookmarkTable.storyboard in Resources */,
+				B6CF066A1FE0A37900655013 /* PageReview.storyboard in Resources */,
 				B6994EA51F835F0F00E39494 /* art.scnassets in Resources */,
 				B6994EAF1F835F0F00E39494 /* LaunchScreen.storyboard in Resources */,
 				B6994EAC1F835F0F00E39494 /* Assets.xcassets in Resources */,
 				B6994EAA1F835F0F00E39494 /* Main.storyboard in Resources */,
+				B6CF06701FE0CE5A00655013 /* CustomCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,11 +514,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6CF06671FE0A1B700655013 /* CatalogViewController.swift in Sources */,
+				B6CF066F1FE0CE5A00655013 /* CustomCollectionViewCell.swift in Sources */,
 				B6994EA71F835F0F00E39494 /* ViewController.swift in Sources */,
 				B6994EA31F835F0F00E39494 /* AppDelegate.swift in Sources */,
 				B66546691FDC92D500A17D3D /* test2.mlmodel in Sources */,
 				B6D064F01FBAA07500A6A48C /* book_nobook_model.mlmodel in Sources */,
+				B6CF06661FE0A1B700655013 /* BookmarkViewController.swift in Sources */,
 				B6A077E41FDF702D00FF1934 /* LaunchscreenController.swift in Sources */,
+				B6CF06721FE0DB4600655013 /* Book.swift in Sources */,
+				B6CF066C1FE0A38E00655013 /* PageReviewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

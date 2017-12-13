@@ -11,19 +11,24 @@ import UIKit
 import SceneKit
 import ARKit
 import Vision
+import SwiftOCR
 
-class ViewController: UIViewController, ARSCNViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+class ViewController: UIViewController, ARSCNViewDelegate, UINavigationControllerDelegate {
+    
     @IBOutlet weak var symbolTextField: UITextField!
     @IBOutlet weak var rearCameraView: ARSCNView!
     @IBOutlet weak var debugTextView: UITextView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var visionRequests = [VNRequest]()
     let dispatchQueueML = DispatchQueue(label: "com.hw.dispatchqueueml")
     override var prefersStatusBarHidden: Bool {return true}
     var cameraOn: Bool = false
-    @IBOutlet weak var cameraImage: UIImageView!
     var originalImage: UIImage!
-    var editedImage: UIImage!
+    let swiftOCRInstance = SwiftOCR()
+    
+    @IBAction func bookSegue(_ sender: Any) {
+        performSegue(withIdentifier: "goToBooks", sender: nil)
+    }
     
     //MARK: SETUP SCENE AND ML MODEL
     
@@ -32,9 +37,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIImagePickerControll
         rearCameraView.delegate = self
         let scene = SCNScene()
         rearCameraView.scene = scene
-        
-        //Camera functionality
-        self.cameraHidden()
+        activityIndicator.isHidden = true
         
         //--Machine Learning and Deep learning--//
         
@@ -42,7 +45,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIImagePickerControll
         guard let model = try? VNCoreMLModel(for: test2().model)
             else {
                 fatalError("Ensure the model is imported correctly. Also make sure model works before adding to project")
-            }
+        }
         //Setup ML Request
         let classificationRequest = VNCoreMLRequest(model: model, completionHandler: classificationCompleteHandler)
         classificationRequest.imageCropAndScaleOption = VNImageCropAndScaleOption.centerCrop
@@ -135,24 +138,28 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIImagePickerControll
     
     //MARK: CAMERA BUTTON FUNCTIONALITY
     @IBAction func enableCamera(_ sender: UIButton) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .camera
-        
-        present(imagePicker, animated: true, completion: nil)
+        presentImagePicker()
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
+    private func ocrRecgonize(){
+        if let pic = self.originalImage {
+            swiftOCRInstance.recognize(pic) { recognizedString in
+                DispatchQueue.main.async(execute: {
+                    print("Recognizing string...")
+                    print(recognizedString)
+                })
+            }
+        }
+        activityIndicator.stopAnimating()
+        activityIndicator.isHidden = true
         
-        dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: "bookmarking", sender: nil)
     }
     
     func cameraHidden() {
         if(self.cameraOn) {
             //TODO: ENABLE CAMERA BUTTON
-            self.cameraImage.isHidden = false
+            //self.cameraImage.isHidden = false
         }
     }
     
@@ -170,3 +177,53 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIImagePickerControll
         //TODO
     }
 }
+
+//MARK: This scales all images to best format for OCR Image Recognition
+extension UIImage {
+    func scaleImage(_ maxDimension: CGFloat) -> UIImage? {
+        var scaledSize = CGSize(width: maxDimension, height: maxDimension)
+        
+        if scaledSize.width > scaledSize.height {
+            let scaleFactor = size.height / size.width
+            scaledSize.height = scaledSize.width * scaleFactor
+        }else {
+            let scaleFactor = size.width / size.height
+            scaledSize.width = scaledSize.height * scaleFactor
+        }
+        
+        UIGraphicsBeginImageContext(scaledSize)
+        draw(in: CGRect(origin: .zero, size: scaledSize))
+        let rescaledImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return rescaledImage
+    }
+}
+
+extension ViewController : UIImagePickerControllerDelegate {
+    func presentImagePicker(){
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .camera
+        
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        if let selectedPhoto = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            let scaledImage = selectedPhoto.scaleImage(640)
+            
+            activityIndicator.isHidden = false
+            activityIndicator.startAnimating()
+            
+            dismiss(animated: true, completion: {
+                self.ocrRecgonize()
+            })
+        }
+    }
+}
+
+
+
