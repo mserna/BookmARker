@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		B04DE8B34E98F843BCAC9B8F /* Pods_BookmARkerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6977393C9DA599F5ECFF527C /* Pods_BookmARkerUITests.framework */; };
+		B62352041FE5B23E00944633 /* CustomBookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62352031FE5B23E00944633 /* CustomBookTableViewCell.swift */; };
 		B66546691FDC92D500A17D3D /* test2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B66546681FDC92D500A17D3D /* test2.mlmodel */; };
+		B67EC600203E4A990007CD17 /* test_model_3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B67EC5FF203E4A990007CD17 /* test_model_3.mlmodel */; };
 		B6994EA31F835F0F00E39494 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6994EA21F835F0F00E39494 /* AppDelegate.swift */; };
 		B6994EA51F835F0F00E39494 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = B6994EA41F835F0F00E39494 /* art.scnassets */; };
 		B6994EA71F835F0F00E39494 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6994EA61F835F0F00E39494 /* ViewController.swift */; };
@@ -18,16 +20,17 @@
 		B6994EBA1F835F0F00E39494 /* BookmARkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6994EB91F835F0F00E39494 /* BookmARkerTests.swift */; };
 		B6994EC51F835F0F00E39494 /* BookmARkerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6994EC41F835F0F00E39494 /* BookmARkerUITests.swift */; };
 		B6A077E41FDF702D00FF1934 /* LaunchscreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A077E31FDF702D00FF1934 /* LaunchscreenController.swift */; };
+		B6A9D6041FE0EFEA0037AA82 /* BookmarkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A9D6031FE0EFEA0037AA82 /* BookmarkTableViewCell.swift */; };
+		B6B83AEB1FE59359007FEA52 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B6B83AE91FE59359007FEA52 /* Model.xcdatamodeld */; };
 		B6CF06611FE0A18200655013 /* BookmarkTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6CF065F1FE0A18200655013 /* BookmarkTable.storyboard */; };
 		B6CF06621FE0A18200655013 /* Catalog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6CF06601FE0A18200655013 /* Catalog.storyboard */; };
 		B6CF06661FE0A1B700655013 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CF06631FE0A1B700655013 /* BookmarkViewController.swift */; };
 		B6CF06671FE0A1B700655013 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CF06641FE0A1B700655013 /* CatalogViewController.swift */; };
 		B6CF066A1FE0A37900655013 /* PageReview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6CF06691FE0A37900655013 /* PageReview.storyboard */; };
 		B6CF066C1FE0A38E00655013 /* PageReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CF066B1FE0A38E00655013 /* PageReviewViewController.swift */; };
-		B6CF066F1FE0CE5A00655013 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CF066D1FE0CE5A00655013 /* CustomCollectionViewCell.swift */; };
 		B6CF06701FE0CE5A00655013 /* CustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6CF066E1FE0CE5A00655013 /* CustomCollectionViewCell.xib */; };
-		B6CF06721FE0DB4600655013 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CF06711FE0DB4600655013 /* Book.swift */; };
 		B6D064F01FBAA07500A6A48C /* book_nobook_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B6D064EF1FBAA07500A6A48C /* book_nobook_model.mlmodel */; };
+		B6E288E61FE6300900B56D1E /* AddBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E288E51FE6300900B56D1E /* AddBookViewController.swift */; };
 		DF23461F02A022BFC59932F6 /* Pods_BookmARker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D85A9258385F72D855648056 /* Pods_BookmARker.framework */; };
 		FBA5409D5DE42C0FB3E7CDEF /* Pods_BookmARkerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E520B20CEDD6B693E31D1E06 /* Pods_BookmARkerTests.framework */; };
 /* End PBXBuildFile section */
@@ -56,7 +59,9 @@
 		6495C5690860DA0C14F4F433 /* Pods-BookmARkerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookmARkerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BookmARkerUITests/Pods-BookmARkerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6977393C9DA599F5ECFF527C /* Pods_BookmARkerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookmARkerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6602AC4E54049D2AF5B74C1 /* Pods-BookmARker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookmARker.release.xcconfig"; path = "Pods/Target Support Files/Pods-BookmARker/Pods-BookmARker.release.xcconfig"; sourceTree = "<group>"; };
+		B62352031FE5B23E00944633 /* CustomBookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBookTableViewCell.swift; sourceTree = "<group>"; };
 		B66546681FDC92D500A17D3D /* test2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = test2.mlmodel; sourceTree = "<group>"; };
+		B67EC5FF203E4A990007CD17 /* test_model_3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = test_model_3.mlmodel; sourceTree = "<group>"; };
 		B6994E9F1F835F0F00E39494 /* BookmARker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookmARker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6994EA21F835F0F00E39494 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6994EA41F835F0F00E39494 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -72,16 +77,17 @@
 		B6994EC41F835F0F00E39494 /* BookmARkerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmARkerUITests.swift; sourceTree = "<group>"; };
 		B6994EC61F835F0F00E39494 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6A077E31FDF702D00FF1934 /* LaunchscreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchscreenController.swift; sourceTree = "<group>"; };
+		B6A9D6031FE0EFEA0037AA82 /* BookmarkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkTableViewCell.swift; sourceTree = "<group>"; };
+		B6B83AEA1FE59359007FEA52 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		B6CF065F1FE0A18200655013 /* BookmarkTable.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BookmarkTable.storyboard; sourceTree = "<group>"; };
 		B6CF06601FE0A18200655013 /* Catalog.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Catalog.storyboard; sourceTree = "<group>"; };
 		B6CF06631FE0A1B700655013 /* BookmarkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
 		B6CF06641FE0A1B700655013 /* CatalogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
 		B6CF06691FE0A37900655013 /* PageReview.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PageReview.storyboard; sourceTree = "<group>"; };
 		B6CF066B1FE0A38E00655013 /* PageReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageReviewViewController.swift; sourceTree = "<group>"; };
-		B6CF066D1FE0CE5A00655013 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		B6CF066E1FE0CE5A00655013 /* CustomCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCollectionViewCell.xib; sourceTree = "<group>"; };
-		B6CF06711FE0DB4600655013 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		B6D064EF1FBAA07500A6A48C /* book_nobook_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = book_nobook_model.mlmodel; sourceTree = "<group>"; };
+		B6E288E51FE6300900B56D1E /* AddBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookViewController.swift; sourceTree = "<group>"; };
 		D85A9258385F72D855648056 /* Pods_BookmARker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookmARker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC08A1B4C5A23CA0C766B081 /* Pods-BookmARkerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookmARkerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BookmARkerTests/Pods-BookmARkerTests.release.xcconfig"; sourceTree = "<group>"; };
 		E520B20CEDD6B693E31D1E06 /* Pods_BookmARkerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookmARkerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,6 +169,7 @@
 		B6994EA11F835F0F00E39494 /* BookmARker */ = {
 			isa = PBXGroup;
 			children = (
+				B6B83AE91FE59359007FEA52 /* Model.xcdatamodeld */,
 				B6D064EE1FBAA04A00A6A48C /* MachineLearningModels */,
 				B620A2091FBA452600E1EA09 /* Storyboards */,
 				B6DF5D531F85BFBC009D729D /* Classes */,
@@ -192,10 +199,40 @@
 			path = BookmARkerUITests;
 			sourceTree = "<group>";
 		};
+		B6A9D6001FE0E54B0037AA82 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				B6994EA61F835F0F00E39494 /* ViewController.swift */,
+				B6A077E31FDF702D00FF1934 /* LaunchscreenController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		B6A9D6011FE0E5560037AA82 /* Bookmarks */ = {
+			isa = PBXGroup;
+			children = (
+				B6CF066B1FE0A38E00655013 /* PageReviewViewController.swift */,
+				B6CF06631FE0A1B700655013 /* BookmarkViewController.swift */,
+				B6A9D6031FE0EFEA0037AA82 /* BookmarkTableViewCell.swift */,
+			);
+			path = Bookmarks;
+			sourceTree = "<group>";
+		};
+		B6A9D6021FE0E5610037AA82 /* Books */ = {
+			isa = PBXGroup;
+			children = (
+				B6CF06641FE0A1B700655013 /* CatalogViewController.swift */,
+				B62352031FE5B23E00944633 /* CustomBookTableViewCell.swift */,
+				B6E288E51FE6300900B56D1E /* AddBookViewController.swift */,
+			);
+			path = Books;
+			sourceTree = "<group>";
+		};
 		B6D064EE1FBAA04A00A6A48C /* MachineLearningModels */ = {
 			isa = PBXGroup;
 			children = (
 				B66546681FDC92D500A17D3D /* test2.mlmodel */,
+				B67EC5FF203E4A990007CD17 /* test_model_3.mlmodel */,
 				B6D064EF1FBAA07500A6A48C /* book_nobook_model.mlmodel */,
 			);
 			path = MachineLearningModels;
@@ -204,13 +241,9 @@
 		B6DF5D531F85BFBC009D729D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				B6CF06631FE0A1B700655013 /* BookmarkViewController.swift */,
-				B6994EA61F835F0F00E39494 /* ViewController.swift */,
-				B6A077E31FDF702D00FF1934 /* LaunchscreenController.swift */,
-				B6CF066B1FE0A38E00655013 /* PageReviewViewController.swift */,
-				B6CF06641FE0A1B700655013 /* CatalogViewController.swift */,
-				B6CF066D1FE0CE5A00655013 /* CustomCollectionViewCell.swift */,
-				B6CF06711FE0DB4600655013 /* Book.swift */,
+				B6A9D6021FE0E5610037AA82 /* Books */,
+				B6A9D6011FE0E5560037AA82 /* Bookmarks */,
+				B6A9D6001FE0E54B0037AA82 /* Main */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -515,15 +548,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6CF06671FE0A1B700655013 /* CatalogViewController.swift in Sources */,
-				B6CF066F1FE0CE5A00655013 /* CustomCollectionViewCell.swift in Sources */,
 				B6994EA71F835F0F00E39494 /* ViewController.swift in Sources */,
+				B62352041FE5B23E00944633 /* CustomBookTableViewCell.swift in Sources */,
+				B6E288E61FE6300900B56D1E /* AddBookViewController.swift in Sources */,
 				B6994EA31F835F0F00E39494 /* AppDelegate.swift in Sources */,
+				B6A9D6041FE0EFEA0037AA82 /* BookmarkTableViewCell.swift in Sources */,
+				B67EC600203E4A990007CD17 /* test_model_3.mlmodel in Sources */,
 				B66546691FDC92D500A17D3D /* test2.mlmodel in Sources */,
 				B6D064F01FBAA07500A6A48C /* book_nobook_model.mlmodel in Sources */,
 				B6CF06661FE0A1B700655013 /* BookmarkViewController.swift in Sources */,
 				B6A077E41FDF702D00FF1934 /* LaunchscreenController.swift in Sources */,
-				B6CF06721FE0DB4600655013 /* Book.swift in Sources */,
 				B6CF066C1FE0A38E00655013 /* PageReviewViewController.swift in Sources */,
+				B6B83AEB1FE59359007FEA52 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -691,8 +727,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MF6426NK34;
+				DEVELOPMENT_TEAM = 78M3CL8X74;
 				INFOPLIST_FILE = BookmARker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sfsu.699.BookmARker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -707,8 +744,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MF6426NK34;
+				DEVELOPMENT_TEAM = 78M3CL8X74;
 				INFOPLIST_FILE = BookmARker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sfsu.699.BookmARker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -827,6 +865,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B6B83AE91FE59359007FEA52 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B6B83AEA1FE59359007FEA52 /* Model.xcdatamodel */,
+			);
+			currentVersion = B6B83AEA1FE59359007FEA52 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B6994E971F835F0F00E39494 /* Project object */;
 }

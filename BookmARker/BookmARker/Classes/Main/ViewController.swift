@@ -13,8 +13,17 @@ import ARKit
 import Vision
 import SwiftOCR
 
+struct Bookmark {
+    //Variables set to default
+    var pageNumber: String! = "No page num found"
+    var chapterNumber: String! = "No chapter num found"
+    var newBookPageImage: UIImage! = UIImage(named: "no_image")
+}
+
+
 class ViewController: UIViewController, ARSCNViewDelegate, UINavigationControllerDelegate {
     
+    //MARK: SETUP VARIABLES
     @IBOutlet weak var symbolTextField: UITextField!
     @IBOutlet weak var rearCameraView: ARSCNView!
     @IBOutlet weak var debugTextView: UITextView!
@@ -25,13 +34,13 @@ class ViewController: UIViewController, ARSCNViewDelegate, UINavigationControlle
     var cameraOn: Bool = false
     var originalImage: UIImage!
     let swiftOCRInstance = SwiftOCR()
+    var bookmark: Bookmark?
     
     @IBAction func bookSegue(_ sender: Any) {
         performSegue(withIdentifier: "goToBooks", sender: nil)
     }
     
     //MARK: SETUP SCENE AND ML MODEL
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         rearCameraView.delegate = self
@@ -39,10 +48,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, UINavigationControlle
         rearCameraView.scene = scene
         activityIndicator.isHidden = true
         
-        //--Machine Learning and Deep learning--//
-        
         //Setup ML Model
-        guard let model = try? VNCoreMLModel(for: test2().model)
+        guard let model = try? VNCoreMLModel(for: test_model_3().model)
             else {
                 fatalError("Ensure the model is imported correctly. Also make sure model works before adding to project")
         }
@@ -53,10 +60,13 @@ class ViewController: UIViewController, ARSCNViewDelegate, UINavigationControlle
         
         //Update ML Request
         updateRequest()
+        
+        //Ensure ARKit is using autofocused - https://stackoverflow.com/questions/46145637/adjust-camera-focus-in-arkit
+        let config = ARWorldTrackingConfiguration()
+        config.isAutoFocusEnabled = true
     }
     
     //MARK: AR TRACKING CONFIG
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let configuration = ARWorldTrackingConfiguration() // Create a session configuration
@@ -79,7 +89,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, UINavigationControlle
     }
     
     //MARK: UPDATES
-    
     func updateRequest() {
         dispatchQueueML.async {
             self.updateCoreML() //Run updates
@@ -101,6 +110,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UINavigationControlle
         }
     }
     
+    //MARK: IMAGE RECOG CLASSIFICATION
     func classificationCompleteHandler(request: VNRequest, error: Error?){
         if error != nil {
             print("Error: " + (error?.localizedDescription)!)
@@ -114,7 +124,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UINavigationControlle
         
         //Grabbed from MIT Open Source License repo and edited for my model
         let classifications = observations[0...1] // Either book or no book
-            .flatMap({ $0 as? VNClassificationObservation })
+            .compactMap({ $0 as? VNClassificationObservation }) //Changed from flatMap -> compactMap. Test to ensure working
             .map({ "\($0.identifier) \(String(format:" : %.2f", $0.confidence))" })
             .joined(separator: "\n")
         
@@ -128,24 +138,28 @@ class ViewController: UIViewController, ARSCNViewDelegate, UINavigationControlle
             // Only display a prediction if confidence is above 1%
             let topPredictionScore:Float? = Float(topPrediction.components(separatedBy: ":")[1].trimmingCharacters(in: .whitespaces))
             if (topPredictionScore != nil && topPredictionScore! > 0.01) {
-                if (topPredictionName == "book") { symbol = "BOOK"; self.cameraOn = true }
-                if (topPredictionName == "no-book") { symbol = "NO BOOK"; self.cameraOn = false}
+                if (topPredictionName == "book" && topPredictionScore! > 0.60) {
+                    symbol = "BOOK";
+                    self.cameraOn = true;
+                    //Takes automatic picture of book page
+                    self.takePicture()
+                }
+                if (topPredictionName == "no-book") {
+                    symbol = "NO BOOK";
+                    self.cameraOn = false
+                }
             }
             
             self.symbolTextField.text = symbol
         }
     }
     
-    //MARK: CAMERA BUTTON FUNCTIONALITY
-    @IBAction func enableCamera(_ sender: UIButton) {
-        presentImagePicker()
-    }
-    
+    //MARK: MIGHT GO IN PAGEREVIEWCONTROLLER CLASS
     private func ocrRecgonize(){
         if let pic = self.originalImage {
             swiftOCRInstance.recognize(pic) { recognizedString in
                 DispatchQueue.main.async(execute: {
-                    print("Recognizing string...")
+                    print("Recognizing bookpage...")
                     print(recognizedString)
                 })
             }
@@ -156,15 +170,12 @@ class ViewController: UIViewController, ARSCNViewDelegate, UINavigationControlle
         performSegue(withIdentifier: "bookmarking", sender: nil)
     }
     
+    //MARK: DEPRECATED
     func cameraHidden() {
-        if(self.cameraOn) {
-            //TODO: ENABLE CAMERA BUTTON
-            //self.cameraImage.isHidden = false
-        }
+        if(self.cameraOn) {}
     }
     
     //MARK: SESSION ERROR HANDLING
-    
     func session(_ session: ARSession, didFailWithError error: Error) {
         fatalError("Session failed with error: \(error)")
     }
@@ -174,11 +185,11 @@ class ViewController: UIViewController, ARSCNViewDelegate, UINavigationControlle
     }
     
     func sessionInterruptionEnded(_ session: ARSession) {
-        //TODO
+        
     }
 }
 
-//MARK: This scales all images to best format for OCR Image Recognition
+//MARK: THIS SCALES ALL IMAGES TO BEST FORMAT FOR OCR IMAGE RECOG
 extension UIImage {
     func scaleImage(_ maxDimension: CGFloat) -> UIImage? {
         var scaledSize = CGSize(width: maxDimension, height: maxDimension)
@@ -200,20 +211,31 @@ extension UIImage {
     }
 }
 
+//MARK: SETUPS CAMERA AND AUTO TAKES PICTURE
 extension ViewController : UIImagePickerControllerDelegate {
-    func presentImagePicker(){
+    func takePicture(){
+        
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = .camera
+        imagePicker.showsCameraControls = false
+        imagePicker.isNavigationBarHidden = true
         
-        present(imagePicker, animated: true, completion: nil)
+        //Takes picture automatically
+        present(imagePicker, animated: true, completion: {
+            imagePicker.takePicture()
+        })
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
         if let selectedPhoto = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            let scaledImage = selectedPhoto.scaleImage(640)
+            var scaledImage = selectedPhoto.scaleImage(640) //This should be the new bookPage image
+            
+            /*Testing*/
+            bookmark?.newBookPageImage = scaledImage
+            /*//Testing*/
             
             activityIndicator.isHidden = false
             activityIndicator.startAnimating()
@@ -224,6 +246,7 @@ extension ViewController : UIImagePickerControllerDelegate {
         }
     }
 }
+
 
 
 

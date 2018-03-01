@@ -1,28 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jvN-dp-Fdy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14101" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jvN-dp-Fdy">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="BradleyHand-Bold.ttf">
-            <string>BradleyHandITCTT-Bold</string>
-        </array>
-        <array key="Futura.ttc">
-            <string>Futura-Medium</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Page Review View Controller-->
         <scene sceneID="wp5-Rt-xne">
             <objects>
-                <viewController id="LEd-rf-gqf" customClass="PageReviewViewController" customModule="BookmARker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PageReviewViewController" id="LEd-rf-gqf" customClass="PageReviewViewController" customModule="BookmARker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="suh-Io-CsV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -82,12 +75,12 @@
                                                     <color key="titleColor" red="0.67689845469999999" green="0.85872765969999998" blue="0.99221161270000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                             </button>
-                                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Chapter" adjustsFontSizeToFit="NO" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="yhb-gd-qDe">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Chapter" adjustsFontSizeToFit="NO" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="yhb-gd-qDe">
                                                 <rect key="frame" x="51" y="446.5" width="111" height="30"/>
                                                 <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Page Number" adjustsFontSizeToFit="NO" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="bqt-d4-MiS">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Page Number" adjustsFontSizeToFit="NO" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="bqt-d4-MiS">
                                                 <rect key="frame" x="170" y="446.5" width="110.5" height="30"/>
                                                 <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -128,6 +121,9 @@
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aeb-of-zWj">
+                                                <rect key="frame" x="51" y="110" width="272" height="257"/>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -148,11 +144,13 @@
                                             <constraint firstAttribute="trailing" secondItem="IKS-Wb-lsc" secondAttribute="trailing" id="YUb-gc-CTQ"/>
                                             <constraint firstItem="a9w-f2-wSg" firstAttribute="width" secondItem="xAn-GJ-7SE" secondAttribute="width" id="aLA-pv-Dzf"/>
                                             <constraint firstItem="iUe-It-ZpM" firstAttribute="centerX" secondItem="z9M-dv-ldy" secondAttribute="centerX" id="fpk-lP-yA0"/>
+                                            <constraint firstItem="Aeb-of-zWj" firstAttribute="width" secondItem="a9w-f2-wSg" secondAttribute="width" id="iPI-tZ-kYX"/>
                                             <constraint firstItem="iUe-It-ZpM" firstAttribute="top" secondItem="z9M-dv-ldy" secondAttribute="top" constant="30" id="jeu-LO-2a7"/>
                                             <constraint firstItem="yhb-gd-qDe" firstAttribute="width" secondItem="bqt-d4-MiS" secondAttribute="width" id="joV-wh-9PJ"/>
                                             <constraint firstItem="yhb-gd-qDe" firstAttribute="leading" secondItem="a9w-f2-wSg" secondAttribute="leading" id="qM4-bQ-EbA"/>
                                             <constraint firstItem="a9w-f2-wSg" firstAttribute="centerX" secondItem="z9M-dv-ldy" secondAttribute="centerX" id="r1y-tc-2U2"/>
                                             <constraint firstItem="Cqw-EG-3qV" firstAttribute="leading" secondItem="bqt-d4-MiS" secondAttribute="trailing" constant="8" id="rdO-0l-Fn0"/>
+                                            <constraint firstItem="Aeb-of-zWj" firstAttribute="height" secondItem="a9w-f2-wSg" secondAttribute="height" id="svW-z9-10g"/>
                                             <constraint firstItem="a9w-f2-wSg" firstAttribute="top" secondItem="iUe-It-ZpM" secondAttribute="bottom" constant="20" id="yMY-Qq-3Lg"/>
                                             <constraint firstAttribute="bottom" secondItem="IKS-Wb-lsc" secondAttribute="bottom" id="ziw-z6-9jr"/>
                                         </constraints>
@@ -186,10 +184,15 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Apply" id="siR-jz-gro">
                             <connections>
-                                <action selector="applyBookmark:" destination="LEd-rf-gqf" id="2SB-Ma-LUH"/>
+                                <action selector="saveBookmark:" destination="LEd-rf-gqf" id="W0y-CM-CDv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="bookImageView" destination="Aeb-of-zWj" id="ukp-In-6gC"/>
+                        <outlet property="chapterTextField" destination="yhb-gd-qDe" id="tyY-kz-0l0"/>
+                        <outlet property="pageNumTextField" destination="bqt-d4-MiS" id="B2W-BP-fG1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KsW-0C-odb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
